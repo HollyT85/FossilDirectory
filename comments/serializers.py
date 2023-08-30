@@ -19,3 +19,8 @@ class RockCommentSerializer(serializers.ModelSerializer):
             'id', 'owner', 'rock_post', 'created_at', 'updated_at',
             'comment', 'is_owner', 'profile_id', 'profile_image'
         ]
+
+
+class RockCommentDetailSerializer(RockCommentSerializer):
+
+    rock = serializers.ReadOnlyField(source='rock.id')
