@@ -23,4 +23,4 @@ class RockCommentSerializer(serializers.ModelSerializer):
 
 class RockCommentDetailSerializer(RockCommentSerializer):
 
-    rock = serializers.ReadOnlyField(source='rock.id')
+    rock_post = serializers.ReadOnlyField(source='rock.id')
