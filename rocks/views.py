@@ -31,7 +31,7 @@ class RockList(APIView):
             serializer.errors, status=status.HTTP_400_BAD_REQUEST
         )
 
-def RockDetail(APIView):
+class RockDetail(APIView):
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = RockSerializer
 
