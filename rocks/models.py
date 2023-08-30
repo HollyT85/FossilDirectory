@@ -8,6 +8,14 @@ class Rock(models.Model):
     Default image set so that we can always reference image.url.
     """
 
+    image_filters = [
+        ('ammonite', 'ammonite'),
+        ('rock', 'rock'),
+        ('fossil', 'fossil'),
+        ('unknown_rock', 'unknown_rock'),
+        ('unknown_fossil', 'unknown_fossil')
+    ]
+
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     info = models.TextField(blank=True)
@@ -24,6 +32,10 @@ class Rock(models.Model):
     )
     finished_image = models.ImageField(
         upload_to='images/', default='../default_post_i7zqny', blank=True
+    )
+
+    image_filter = models.CharField(
+        max_length=32, choices=image_filters, default='fossil'
     )
 
     class Meta:
