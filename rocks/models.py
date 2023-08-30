@@ -18,13 +18,13 @@ class Rock(models.Model):
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
-    info = models.TextField(blank=True)
-    location = models.CharField(max_length=255, blank=True)
-    material = models.CharField(max_length=255, blank=True)
-    size = models.CharField(max_length=50, blank=True)
-    era = models.CharField(max_length=255, blank=True)
-    tools = models.TextField(blank=True)
-    found = models.DateTimeField(blank=True)
+    info = models.TextField(blank=True, null=True)
+    location = models.CharField(max_length=255, blank=True, null=True)
+    material = models.CharField(max_length=255, blank=True, null=True)
+    size = models.CharField(max_length=50, blank=True, null=True)
+    era = models.CharField(max_length=255, blank=True, null=True)
+    tools = models.TextField(blank=True, null=True)
+    found = models.DateTimeField(blank=True, null=True)
     prepped = models.BooleanField(blank=False, default=False)
 
     image = models.ImageField(
