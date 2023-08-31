@@ -1,6 +1,7 @@
 from django.http import Http404
 from rest_framework import filters, permissions, generics
 from rest_framework.response import Response
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.views import APIView
 from .models import Rock
 from .serializers import RockSerializer
@@ -19,6 +20,11 @@ class RockList(generics.ListCreateAPIView):
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
+        DjangoFilterBackend,
+    ]
+
+    filterset_fields = [
+        'owner__profile'
     ]
 
     search_fields = [
